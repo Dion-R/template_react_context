@@ -1,14 +1,16 @@
-import { useSomethingContext } from './context/SomethingContext'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Individual from "./pages/individualPage/page/Individual";
+import Home from "./pages/landingPage/page/Home";
 
 function App() {
-  const {name} = useSomethingContext();
-
   return (
-    <div className="App">
-      <h1>Dion React template for Context</h1>
-      <h2>{name}</h2>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route exact path="/individual/:person" element={<Individual />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
